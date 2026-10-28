@@ -1,0 +1,6 @@
+{
+  "name": "Generator Modul Ajar Deep Learning",
+  "description": "Aplikasi penyusun dan generator Modul Ajar Deep Learning (Mindful, Meaningful, Joyful) dengan ekspor Word (.docx) dan PDF.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

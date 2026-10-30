@@ -1,308 +1,176 @@
 import { ModulAjarData } from '../types/modul';
 
-export const TEMPLATE_CONTOH_1: ModulAjarData = {
+export const INITIAL_MODUL: ModulAjarData = {
   identitas: {
-    namaSekolah: 'SMA Negeri 1 Edukasi Unggul',
-    namaGuru: 'Siti Rahmawati, S.Pd., M.Pd.',
-    nipGuru: '19850412 201001 2 015',
-    namaKepalaSekolah: 'Drs. Bambang Sudarmono, M.M.',
-    nipKepalaSekolah: '19720315 199802 1 003',
-    mataPelajaran: 'Informatika',
+    namaSekolah: 'SMK Negeri 1 Bebandem',
+    namaGuru: 'Guru Pengampu, S.Pd.',
+    nipGuru: '-',
+    namaKepalaSekolah: 'I Wayan Darmayasa, ST.,M.Si.',
+    nipKepalaSekolah: '19730522 200501 1 009',
+    mataPelajaran: 'Dasar-Dasar Kejuruan / Informatika',
     fase: 'Fase E',
-    kelas: 'Kelas X (Sepuluh)',
+    kelas: 'Kelas X (Sepuluh) SMK',
     semester: 'Semester Ganjil',
     tahunPelajaran: '2024/2025',
-    alokasiWaktu: '2 JP (2 x 45 menit)',
-    topikMateri: 'Penerapan Berpikir Komputasional & Etika Kecerdasan Artifisial (AI) dalam Kehidupan Sehari-hari',
+    alokasiWaktu: '4 JP (4 x 45 menit)',
+    topikMateri: 'Penerapan Berpikir Komputasional dan Keselamatan Kerja Teknologi di Lingkungan Sekolah & Industri',
   },
   identifikasi: {
     karakteristikPesertaDidik:
-      'Peserta didik kelas X berada pada rentang usia 15-16 tahun, sangat akrab dengan gawai dan media sosial (digital native), namun sebagian besar masih berperan sebagai konsumen pasif informasi. Memiliki minat tinggi pada teknologi visual dan kecerdasan buatan, namun membutuhkan penguatan dalam kemampuan berpikir kritis, verifikasi fakta/data, serta pemahaman etika privasi digital.',
+      'Peserta didik kelas X SMK Negeri 1 Bebandem memiliki gaya belajar visual dan kinestetik yang dominan, antusias terhadap praktik langsung dan simulasi teknologi, serta membutuhkan pembiasaan etika kerja profesional, disiplin industri, dan pemikiran analitis dalam menyelesaikan permasalahan nyata.',
     materiEsensialRelevansi:
-      'Prinsip Berpikir Komputasional (Dekomposisi, Pengenalan Pola, Abstraksi, Algoritma) dan dampaknya dalam pemanfaatan generative AI. Relevan secara langsung karena peserta didik menggunakan AI sehari-hari untuk mengerjakan tugas sekolah dan interaksi sosial.',
+      'Konsep esensial Berpikir Komputasional (Dekomposisi, Pengenalan Pola, Abstraksi, Algoritma) dan Budaya Kerja Industri (5R/5S dan K3LH). Relevan langsung dengan standar kompetensi kerja vokasi kejuruan dan pemecahan masalah teknis di dunia industri.',
     dimensiProfilLulusan: [
-      'Bernalar Kritis (menganalisis output AI, mengevaluasi bias informasi)',
-      'Kreatif (merumuskan solusi inovatif berbasis teknologi secara bertanggung jawab)',
-      'Bergotong Royong (berkolaborasi memecahkan studi kasus nyata dalam kelompok)',
-      'Mandiri (memiliki kesadaran regulasi diri dalam penggunaan gawai)',
+      'Bernalar Kritis (menganalisis masalah teknis, mengevaluasi efisiensi solusi sistematis)',
+      'Kreatif (merumuskan solusi inovatif dan desain alur kerja efisien)',
+      'Bergotong Royong (berkolaborasi aktif dalam tim kerja bengkel/laboratorium)',
+      'Mandiri (memiliki inisiatif kerja dan disiplin regulasi diri berstandar industri)',
     ],
     capaianPembelajaran:
-      'Pada akhir Fase E, peserta didik mampu memahami strategi algoritmik standar dan menerapkan berpikir komputasional pada situasi kontekstual sehari-hari, serta memahami dampak sosial, etika, dan keamanan data dalam era kecerdasan artifisial.',
+      'Pada akhir Fase E, peserta didik mampu menerapkan berpikir komputasional dalam menyelesaikan persoalan nyata berlandaskan logika algoritmik, serta menerapkan prinsip keamanan data, etika digital, dan standar keselamatan kerja profesional.',
     tujuanPembelajaran: [
-      'Peserta didik mampu menguraikan 4 pilar berpikir komputasional dalam konteks studi kasus pemanfaatan AI secara cermat melalui diskusi interaktif.',
-      'Peserta didik mampu merancang prompt instruksional yang etis dan bernalar kritis untuk menyelesaikan permasalahan nyata di lingkungan sekolah.',
-      'Peserta didik mampu merefleksikan dampak positif dan risiko bias kecerdasan buatan terhadap hak cipta serta integritas akademik.',
+      'Peserta didik mampu menganalisis permasalahan kontekstual di lingkungan sekolah dan industri menggunakan 4 pilar berpikir komputasional secara terstruktur.',
+      'Peserta didik mampu merancang algoritma solusi kerja terstandar yang efisien dan aman melalui kerja kolaboratif.',
+      'Peserta didik mampu merefleksikan proses penyelesaian masalah serta menarik makna pembelajaran untuk kesiapan kerja di dunia industri.',
     ],
     kriteriaKetercapaian: [
-      'Mampu mengidentifikasi minimal 3 pilar berpikir komputasional dalam skenario yang disajikan.',
-      'Mampu menyusun prompt berbasis masalah kontekstual yang menghasilkan solusi valid dan terverifikasi.',
-      'Mampu memberikan argumentasi etis terkait batasan penggunaan AI dalam pembelajaran.',
-      'Menunjukkan sikap kolaboratif dan saling menghargai saat presentasi kelompok.',
+      'Mampu mendekomposisi masalah kompleks kejuruan menjadi komponen-komponen kecil yang terkelola.',
+      'Mampu menyusun diagram alur/prosedur kerja solusi secara logis dan runtut.',
+      'Menunjukkan sikap kerja berkesadaran, teliti, dan mengutamakan keselamatan kerja.',
+      'Mampu mengkomunikasikan hasil karya kelompok secara percaya diri dan terbuka terhadap masukan.',
     ],
   },
   desainDeepLearning: {
     praktikPedagogis:
-      'Problem-Based Learning (PBL) terintegrasi Pembelajaran Berdiferensiasi (Differentiated Process & Product) dan Socratic Dialogue untuk merangsang pemikiran reflektif tingkat tinggi (HOTS).',
+      'Problem-Based Learning (PBL) dan Teaching Factory (TEFA) berorientasi diferensiasi proses, memadukan studi kasus industri nyata dan simulasi praktik terarah.',
     kemitraanPembelajaran:
-      'Kemitraan multi-arah: Kolaborasi peer-to-peer antarpeserta didik dalam kelompok heterogen, guru sebagai fasilitator pemantik rasa ingin tahu, serta mengundang referensi dari praktisi AI/komunitas teknologi lokal secara virtual.',
+      'Kemitraan segitiga: Guru fasilitator, peserta didik yang saling mendukung (peer-mentoring), serta penyelarasan standar dengan Dunia Usaha / Dunia Industri (DUDI) mitra sekolah.',
     lingkunganPembelajaran:
-      'Menciptakan ruang kelas yang aman secara psikologis (psychological safety), di mana setiap kesalahan dianggap sebagai momen belajar (growth mindset). Penataan meja berbentuk pulau kecil (round-table clusters) untuk memudahkan interaksi.',
+      'Ruang laboratorium/bengkel praktik yang menerapkan 5R (Ringkas, Rapi, Resik, Rawat, Rajin) dengan atmosfer psikologis yang aman, suportif, dan menghargai setiap proses eksplorasi murid.',
     pemanfaatanTeknologiDigital:
-      'Platform visual interaktif (Mentimeter/Padlet) untuk brainstorming berkesadaran, simulator prompt AI berbasis edukasi, dan dokumen kolaboratif digital untuk asesmen formatif langsung.',
+      'Pemanfaatan AI edukatif untuk verifikasi ide, platform kolaborasi digital real-time, dan software simulator teknis kejuruan.',
     prinsipPrinsip: {
       berkesadaran:
-        'Mindful: Mengawali pembelajaran dengan latihan pernapasan berkesadaran (mindful breathing) 2 menit untuk menenangkan pikiran, serta mengajak murid sadar penuh atas dampak digital footprint mereka.',
+        'Mindful: Mengawali aktivitas dengan pembiasaan kesadaran diri (mindful breathing) dan briefing keselamatan kerja 2 menit untuk membangun fokus mental penuh.',
       bermakna:
-        'Meaningful: Materi dikaitkan langsung dengan dilema nyata yang dihadapi murid saat menggunakan AI untuk tugas sekolah, hoax deepfake di medsos, dan orisinalitas karya.',
+        'Meaningful: Setiap topik dikaitkan langsung dengan studi kasus nyata yang dihadapi teknisi/pekerja di industri, bukan hafalan teori.',
       menggembirakan:
-        'Joyful: Pembelajaran dikemas melalui game investigasi detektif AI (Spot the AI Bias), kuis interaktif, dan apresiasi positif terhadap setiap kontribusi gagasan orisinal murid.',
+        'Joyful: Suasana belajar interaktif melalui tantangan mini-proyek beregu, apresiasi pencapaian tim, dan dinamika pembelajaran tanpa tekanan intimidasi.',
     },
     pengalamanBelajar: {
       memahami:
-        'Murid mengeksplorasi konsep dasar berpikir komputasional melalui simulasi kasus nyata "Bagaimana algoritma rekomendasi media sosial memahami preferensi kita".',
+        'Peserta didik mengeksplorasi konsep esensial melalui observasi studi kasus nyata dan investigasi sistematis.',
       mengaplikasi:
-        'Murid bekerja dalam tim merumuskan solusi atas permasalahan "Mengatasi Plagiarisme & Hoax di Kalangan Pelajar" dengan membuat infografis/alur panduan etika digital.',
+        'Peserta didik merancang dan menguji coba solusi konkret atas masalah kerja industri bersama tim kerja.',
       merefleksi:
-        'Murid menuliskan jurnal refleksi 3-2-1 (3 hal baru yang dipahami, 2 hal yang menantang, 1 komitmen etis yang akan dipraktikkan mulai hari ini).',
+        'Peserta didik melakukan refleksi metakognisi 3-2-1 dan evaluasi rekan sejawat terkait kualitas hasil kerja serta sikap kerja tim.',
     },
   },
   langkahPembelajaran: {
     kegiatanPendahuluan: {
       durasi: '15 Menit',
       aktivitasGuru: [
-        'Guru menyapa murid dengan hangat dan memandu latihan hening sejenak (Mindful Moment) untuk memusatkan perhatian dan rasa syukur.',
-        'Guru melakukan presensi kehadiran dan menyepakati keyakinan kelas selama pembelajaran berlangsung.',
-        'Guru menyajikan tayangan video singkat 60 detik tentang berita viral buatan AI (deepfake) sebagai apersepsi kontekstual.',
-        'Guru menyampaikan tujuan pembelajaran, alur kegiatan, dan kriteria penilaian.',
+        'Guru menyapa murid dengan salam hangat, memimpin doa, dan memandu latihan hening berkesadaran (Mindful Moment) 2 menit untuk kesiapan mental belajar.',
+        'Guru memeriksa kehadiran dan memastikan kesiapan alat perlindungan diri serta kebersihan lingkungan belajar (5R).',
+        'Guru memberikan apersepsi kontekstual berupa tayangan video singkat tentang tantangan teknologi industri masa kini.',
+        'Guru menyampaikan tujuan pembelajaran, indikator pencapaian, dan alur aktivitas yang menggembirakan.',
       ],
       aktivitasSiswa: [
-        'Murid merespons salam, mengikuti latihan hening dengan tenang dan hadir utuh (mindful).',
-        'Murid menyimak tayangan video apersepsi dengan antusias dan mengajukan dugaan awal.',
-        'Murid menjawab polling cepat diagnostik non-kognitif pada layar proyektor mengenai perasaan mereka hari ini.',
+        'Peserta didik merespons salam, berdoa dengan khidmat, dan mengikuti latihan hening berkesadaran dengan fokus penuh.',
+        'Peserta didik mengecek kerapian diri dan kesiapan ruang belajar.',
+        'Peserta didik menyimak apersepsi dengan antusias dan merespons pertanyaan pemantik dari guru.',
       ],
       pertanyaanPemantik: [
-        'Pernahkah kalian membaca berita atau melihat foto di media sosial yang ternyata 100% dibuat oleh AI? Bagaimana cara kalian mengetahuinya?',
-        'Jika AI bisa mengerjakan semua tugas sekolah dalam 5 detik, keterampilan manusia apa yang paling berharga dan tidak bisa digantikan oleh mesin?',
+        'Bagaimana seorang teknisi profesional menemukan akar penyebab mesin/sistem yang tiba-tiba berhenti bekerja?',
+        'Mengapa cara berpikir terstruktur dan kesadaran keselamatan kerja jauh lebih penting daripada sekadar kecepatan menyelesaikan tugas?',
       ],
     },
     kegiatanInti: {
-      durasi: '60 Menit',
+      durasi: '140 Menit',
       tahapMemahami: {
         aktivitasGuru: [
-          'Guru memfasilitasi eksplorasi konsep 4 pilar Berpikir Komputasional melalui skenario "Detektif Informasi".',
-          'Guru memberikan scaffolding bagi kelompok yang membutuhkan bimbingan bertahap dan tantangan pengayaan bagi kelompok cepat.',
+          'Guru menyajikan studi kasus otentik industri dan memfasilitasi eksplorasi konsep 4 pilar Berpikir Komputasional.',
+          'Guru memberikan bimbingan bertingkat (scaffolding) sesuai kebutuhan kesiapan belajar peserta didik.',
         ],
         aktivitasSiswa: [
-          'Murid secara mandiri membaca studi kasus digital dan mengidentifikasi unsur dekomposisi serta pola dalam data.',
-          'Murid saling mendiskusikan temuan awal dengan rekan sebangku (Think-Pair-Share).',
+          'Peserta didik menelaah dokumen studi kasus dan mengidentifikasi pola serta akar permasalahan (Dekomposisi & Pengenalan Pola).',
+          'Peserta didik berdiskusi interaktif dalam kelompok kecil untuk merumuskan konsep pemahaman inti.',
         ],
       },
       tahapMengaplikasi: {
         aktivitasGuru: [
-          'Guru mendampingi kerja kelompok dan memberikan umpan balik langsung (formative feedback) saat murid menyusun panduan etika AI.',
-          'Guru mengobservasi partisipasi aktif dan dimensi bernalar kritis murid menggunakan lembar observasi proses.',
+          'Guru memfasilitasi kerja tim dan mendampingi perancangan alur solusi kerja/algoritma pemecahan masalah.',
+          'Guru melakukan observasi asesmen formatif terhadap keaktifan, penalaran kritis, dan kerjasama tim.',
         ],
         aktivitasSiswa: [
-          'Murid berkolaborasi dalam tim heterogen (4-5 orang) merancang "Piagam Pelajar Cerdas & Beretika AI".',
-          'Murid menuangkan gagasan dalam format visual (poster digital / mini-presentasi / peta pikiran sesuai minat kelompok).',
+          'Peserta didik berkolaborasi dalam kelompok kerja merancang alur prosedur pemecahan masalah berstandar operasional.',
+          'Peserta didik mendokumentasikan hasil rancangan dalam lembar kerja kolaboratif digital/visual.',
         ],
       },
       tahapMerefleksi: {
         aktivitasGuru: [
-          'Guru memfasilitasi sesi "Gallery Walk" singkat di mana tiap kelompok memberikan apresiasi bintang dan catatan masukan konstruktif.',
-          'Guru menguatkan kesimpulan esensial dan mengaitkannya kembali dengan dimensi bernalar kritis dan integritas diri.',
+          'Guru memandu sesi presentasi silang (Gallery Walk / Demo Karya) dan memberikan penguatan konsep bermakna.',
+          'Guru memfasilitasi proses refleksi diri dan umpan balik antarpeserta didik.',
         ],
         aktivitasSiswa: [
-          'Perwakilan kelompok mempresentasikan karya secara bergilir selama 3 menit.',
-          'Murid mengisi instrumen refleksi diri mengenai apa yang dirasakan, dipelajari, dan tantangan yang berhasil diatasi.',
+          'Setiap kelompok mempresentasikan rancangan solusi dan menerima masukan konstruktif dari kelompok lain.',
+          'Peserta didik mengisi lembar refleksi diri mengenai wawasan baru, kendala yang dihadapi, dan strategi perbaikan diri.',
         ],
       },
       kegiatanKontekstual:
-        'Studi kasus nyata mengenai fenomena tugas esai yang digenerate oleh AI tanpa proses telaah kritis, dampaknya terhadap kemampuan problem solving jangka panjang murid, serta solusi alternatif berupa verifikasi multi-sumber.',
+        'Simulasi penanganan kendala teknis nyata di industri kejuruan dengan menerapkan dekomposisi masalah, SOP kerja terstandar, dan protokol keselamatan kerja.',
     },
     kegiatanPenutup: {
-      durasi: '15 Menit',
+      durasi: '25 Menit',
       aktivitasGuru: [
-        'Guru bersama murid menyimpulkan intisari pembelajaran hari ini secara interaktif.',
-        'Guru memberikan umpan balik positif atas dinamika kelas yang berkesadaran, bermakna, dan menggembirakan.',
-        'Guru memberikan tindak lanjut pengamatan mandiri di rumah dan menutup pembelajaran dengan doa serta salam.',
+        'Guru bersama peserta didik merumuskan simpulan bermakna dari seluruh rangkaian pengalaman belajar.',
+        'Guru memberikan apresiasi atas dedikasi, kerjasama, dan sikap berkesadaran yang ditunjukkan murid.',
+        'Guru memberikan arahan tindak lanjut penugasan mandiri dan menutup sesi dengan doa penutup serta salam.',
       ],
       aktivitasSiswa: [
-        'Murid menyampaikan simpulan bermakna dari pengalaman belajar yang telah dialami.',
-        'Murid mengumpulkan kartu refleksi tiket keluar (Exit Ticket).',
-        'Murid berdoa bersama dan merapikan kembali ruang belajar.',
+        'Peserta didik menyampaikan intisari pembelajaran dan komitmen perbaikan sikap kerja.',
+        'Peserta didik merapikan kembali ruang praktik sesuai prinsip 5R (Ringkas, Rapi, Resik).',
+        'Peserta didik berdoa bersama dan bersalaman dengan penuh rasa hormat.',
       ],
       refleksiTindakLanjut:
-        'Mengisi jurnal refleksi mingguan di LMS sekolah serta menguji coba 1 etika pemanfaatan teknologi saat menyelesaikan proyek mata pelajaran lain.',
+        'Mempraktikkan cara berpikir komputasional dalam menyelesaikan tugas proyek kejuruan berikutnya dan membuat catatan portofolio mandiri.',
     },
     mediaSumberBelajar: {
       mediaAlat: [
-        'Laptop / Proyektor multimedia',
-        'Gawai peserta didik (smartphone / tablet)',
-        'Papan tulis interaktif / Plano kertas kerja kelompok',
-        'Spidol aneka warna dan sticky notes',
+        'Perangkat Komputer / Laptop Lab',
+        'LCD Proyektor Multimedia',
+        'Papan tulis dan instrumen kerja kelompok',
+        'Gawai untuk akses sumber rujukan digital',
       ],
       sumberBelajar: [
-        'Buku Teks Utama Informatika Fase E Kemendikbudristek',
-        'Modul Literasi Digital & Etika Kecerdasan Artifisial UNESCO / Kemkominfo',
-        'Artikel Studi Kasus Etika AI dari portal edukasi terpercaya',
+        'Buku Teks Kejuruan Kurikulum Merdeka Kemendikdasmen',
+        'Modul Standar Operasional Prosedur (SOP) Industri Mitra SMK',
+        'Bahan ajar digital dan dokumentasi teknis kejuruan terkini',
       ],
       alokasiWaktuDetail:
-        'Total 90 Menit: Pendahuluan (15 mnt), Eksplorasi Memahami (20 mnt), Aplikasi Berkelompok (25 mnt), Refleksi & Berbagi (15 mnt), Penutup (15 mnt).',
+        'Total 4 JP (180 Menit): Pendahuluan (15 mnt), Eksplorasi Memahami (40 mnt), Aplikasi Rancangan (70 mnt), Refleksi & Berbagi (30 mnt), Penutup (25 mnt).',
     },
   },
   asesmenDanLampiran: {
     asesmenAwal:
-      'Kuis diagnostik 3 pertanyaan cepat melalui polling digital untuk memetakan pemahaman awal murid terkait berpikir komputasional dan pengalaman memakai AI.',
+      'Asesmen diagnostik non-kognitif (kesiapan mental dan gaya belajar) serta kuis diagnostik kognitif 3 soal mengenai logika pemecahan masalah.',
     asesmenFormatif:
-      'Penilaian kinerja proses diskusi kelompok menggunakan rubrik analitik 4 skala (Aspek: Partisipasi, Bernalar Kritis, Kerjasama Tim, dan Kualitas Solusi Etis).',
+      'Penilaian observasi kinerja proses kerja kelompok menggunakan rubrik analitik (Aspek: Penalaran Kritis, Kolaborasi, Ketelitian, dan Sikap Kerja).',
     asesmenSumatif:
-      'Penilaian produk "Piagam Panduan Etika AI Sekolah" dan jurnal refleksi personal di akhir fase pembelajaran.',
+      'Penilaian portofolio laporan hasil rancangan pemecahan masalah dan lembar uji pemahaman konsep.',
     lembarKerjaRingkas:
-      'LKPD Eksploratif: Berisi tabel analisis skenario kasus, kotak dekomposisi masalah, template perumusan prompt etis, dan panduan cek validitas output.',
+      'LKPD Berbasis Masalah: Berisi skenario kendala teknis industri, bagan dekomposisi masalah, tabel identifikasi pola, dan formulir perumusan alur kerja.',
     bahanBacaanGuruSiswa:
-      'Ringkasan materi "4 Pilar Computational Thinking dan Prinsip Human-Centered AI dalam Pendidikan Modern".',
+      'Ringkasan materi "Penerapan Berpikir Komputasional dan Budaya Kerja Industri 5R dalam Pendidikan Vokasi SMK".',
     glosarium: [
-      { istilah: 'Deep Learning (Pembelajaran Mendalam)', definisi: 'Pendekatan pedagogis yang menekankan pemahaman konsep secara mendalam, bermakna, berkesadaran, dan menyenangkan untuk diterapkan dalam pemecahan masalah kehidupan nyata.' },
-      { istilah: 'Berpikir Komputasional', definisi: 'Metode berpikir terstruktur untuk memformulasikan masalah dan merancang solusinya sehingga dapat dieksekusi secara efektif oleh manusia maupun komputer.' },
-      { istilah: 'Mindful Learning', definisi: 'Kondisi kesadaran penuh saat belajar, hadir secara mental, fokus, serta menyadari tujuan dan proses belajarnya.' },
-      { istilah: 'Prompt Engineering', definisi: 'Keahlian merumuskan instruksi terstruktur dan kontekstual kepada model AI guna menghasilkan respon yang akurat dan relevan.' },
+      { istilah: 'Deep Learning (Pembelajaran Mendalam)', definisi: 'Pendekatan pembelajaran berkesadaran, bermakna, dan menggembirakan yang menumbuhkan pemahaman konsep esensial dan kemampuan aplikatif jangka panjang.' },
+      { istilah: 'Teaching Factory (TEFA)', definisi: 'Model pembelajaran di SMK berbasis produksi/jasa yang mengacu pada standar dan prosedur di dunia industri.' },
+      { istilah: 'Mindful Breathing', definisi: 'Latihan pernapasan sadar untuk memusatkan perhatian, mengurangi kecemasan, dan meningkatkan kejernihan berpikir sebelum belajar.' },
+      { istilah: 'Dekomposisi Masalah', definisi: 'Kemampuan memecah suatu masalah atau sistem yang rumit menjadi bagian-bagian yang lebih kecil dan mudah dikelola.' },
     ],
   },
   meta: {
-    kotaPenyusunan: 'Jakarta',
+    kotaPenyusunan: 'Bebandem',
     tanggalPenyusunan: '15 Juli 2024',
   },
 };
-
-export const PRESET_OPTIONS = [
-  {
-    id: 'informatika-sma',
-    label: 'Informatika SMA (Fase E) - Berpikir Komputasional & AI',
-    mataPelajaran: 'Informatika',
-    fase: 'Fase E',
-    kelas: 'Kelas X',
-    topikMateri: 'Penerapan Berpikir Komputasional & Etika Kecerdasan Artifisial (AI) dalam Kehidupan Sehari-hari',
-    alokasiWaktu: '2 JP (2 x 45 menit)',
-    fokus: 'Problem-Based Learning, Bernalar Kritis & Etika Digital',
-    data: TEMPLATE_CONTOH_1,
-  },
-  {
-    id: 'ipas-sd',
-    label: 'IPAS SD (Fase C) - Energi Terbarukan & Lingkungan',
-    mataPelajaran: 'Ilmu Pengetahuan Alam dan Sosial (IPAS)',
-    fase: 'Fase C',
-    kelas: 'Kelas V',
-    topikMateri: 'Menjelajahi Energi Terbarukan Ramah Lingkungan di Sekitar Kita',
-    alokasiWaktu: '3 JP (3 x 35 menit)',
-    fokus: 'Project-Based Learning, Kreatif & Bergotong Royong',
-    data: {
-      ...TEMPLATE_CONTOH_1,
-      identitas: {
-        ...TEMPLATE_CONTOH_1.identitas,
-        namaSekolah: 'SD Negeri Nusantara Ceria',
-        mataPelajaran: 'Ilmu Pengetahuan Alam dan Sosial (IPAS)',
-        fase: 'Fase C',
-        kelas: 'Kelas V (Lima)',
-        alokasiWaktu: '3 JP (3 x 35 menit)',
-        topikMateri: 'Menjelajahi Energi Terbarukan Ramah Lingkungan di Sekitar Kita',
-      },
-      identifikasi: {
-        ...TEMPLATE_CONTOH_1.identifikasi,
-        karakteristikPesertaDidik: 'Peserta didik usia 10-11 tahun memiliki rasa ingin tahu tinggi terhadap fenomena alam, menyukai kegiatan observasi visual dan eksperimen langsung, serta membutuhkan pengalaman belajar kinestetik dan kolaboratif.',
-        materiEsensialRelevansi: 'Bentuk-bentuk energi terbarukan (matahari, angin, air) dan pentingnya menghemat energi fosil untuk menjaga bumi.',
-        dimensiProfilLulusan: [
-          'Beriman, Bertakwa kepada Tuhan YME dan Berakhlak Mulia (akhlak kepada alam)',
-          'Bergotong Royong (bekerja sama dalam proyek mini sains)',
-          'Bernalar Kritis (mengidentifikasi pemborosan energi di rumah dan sekolah)',
-        ],
-        capaianPembelajaran: 'Peserta didik memahami konsep kekekalan energi, ragam sumber energi terbarukan, serta mampu merancang tindakan nyata penghematan energi di lingkungan terdekat.',
-        tujuanPembelajaran: [
-          'Peserta didik mampu mengidentifikasi minimal 3 sumber energi terbarukan di lingkungan sekitar melalui pengamatan terpandu.',
-          'Peserta didik mampu merancang model sederhana kincir angin/tenaga surya mini secara kreatif.',
-          'Peserta didik mampu merefleksikan kebiasaan konsumsi energi harian dan merumuskan aksi nyata hemat energi.',
-        ],
-      },
-    },
-  },
-  {
-    id: 'ipa-smp',
-    label: 'IPA SMP (Fase D) - Ekosistem & Solusi Krisis Lingkungan',
-    mataPelajaran: 'Ilmu Pengetahuan Alam (IPA)',
-    fase: 'Fase D',
-    kelas: 'Kelas VIII',
-    topikMateri: 'Keseimbangan Ekosistem dan Solusi Aksi Iklim Berkelanjutan',
-    alokasiWaktu: '2 JP (2 x 40 menit)',
-    fokus: 'Inquiry-Based Learning, Bernalar Kritis & Peduli Lingkungan',
-    data: {
-      ...TEMPLATE_CONTOH_1,
-      identitas: {
-        ...TEMPLATE_CONTOH_1.identitas,
-        namaSekolah: 'SMP Negeri 2 Harapan Bangsa',
-        mataPelajaran: 'Ilmu Pengetahuan Alam (IPA)',
-        fase: 'Fase D',
-        kelas: 'Kelas VIII (Delapan)',
-        alokasiWaktu: '2 JP (2 x 40 menit)',
-        topikMateri: 'Keseimbangan Ekosistem dan Solusi Aksi Iklim Berkelanjutan',
-      },
-      identifikasi: {
-        ...TEMPLATE_CONTOH_1.identifikasi,
-        karakteristikPesertaDidik: 'Peserta didik fase D berada pada masa transisi remaja awal, memiliki kepedulian terhadap isu lingkungan aktual (perubahan iklim, sampah plastik), dan aktif berdiskusi bila dikaitkan dengan fenomena lokal.',
-        materiEsensialRelevansi: 'Interaksi antar komponen ekosistem, rantai makanan, dan dampak aktivitas manusia terhadap keanekaragaman hayati.',
-        capaianPembelajaran: 'Peserta didik mampu mengidentifikasi interaksi makhluk hidup dan lingkungannya serta merancang solusi atas permasalahan lingkungan hidup di sekitarnya.',
-      },
-    },
-  },
-  {
-    id: 'matematika-sma',
-    label: 'Matematika SMA (Fase F) - Analisis Data & Peluang',
-    mataPelajaran: 'Matematika',
-    fase: 'Fase F',
-    kelas: 'Kelas XI',
-    topikMateri: 'Analisis Data Nyata, Ukuran Pemusatan, dan Pengambilan Keputusan Berbasis Peluang',
-    alokasiWaktu: '2 JP (2 x 45 menit)',
-    fokus: 'Data-Driven Problem Solving, Bernalar Kritis & Kolaboratif',
-    data: {
-      ...TEMPLATE_CONTOH_1,
-      identitas: {
-        ...TEMPLATE_CONTOH_1.identitas,
-        namaSekolah: 'SMA Bina Cendekia',
-        mataPelajaran: 'Matematika',
-        fase: 'Fase F',
-        kelas: 'Kelas XI (Sebelas)',
-        alokasiWaktu: '2 JP (2 x 45 menit)',
-        topikMateri: 'Analisis Data Nyata, Ukuran Pemusatan, dan Pengambilan Keputusan Berbasis Peluang',
-      },
-      identifikasi: {
-        ...TEMPLATE_CONTOH_1.identifikasi,
-        materiEsensialRelevansi: 'Mean, median, modus, sebaran data, dan interpretasi grafik data riil (misal tren ekonomi, kesehatan masyarakat).',
-      },
-    },
-  },
-  {
-    id: 'bahasa-indonesia-smp',
-    label: 'Bahasa Indonesia SMP (Fase D) - Teks Argumentasi Kritis',
-    mataPelajaran: 'Bahasa Indonesia',
-    fase: 'Fase D',
-    kelas: 'Kelas IX',
-    topikMateri: 'Menyusun Teks Argumentasi Kritis Berbasis Data dan Fakta',
-    alokasiWaktu: '2 JP (2 x 40 menit)',
-    fokus: 'Literasi Kritis, Komunikasi Efektif & Berkesadaran',
-    data: {
-      ...TEMPLATE_CONTOH_1,
-      identitas: {
-        ...TEMPLATE_CONTOH_1.identitas,
-        namaSekolah: 'SMP Bintang Gemilang',
-        mataPelajaran: 'Bahasa Indonesia',
-        fase: 'Fase D',
-        kelas: 'Kelas IX (Sembilan)',
-        alokasiWaktu: '2 JP (2 x 40 menit)',
-        topikMateri: 'Menyusun Teks Argumentasi Kritis Berbasis Data dan Fakta',
-      },
-      identifikasi: {
-        ...TEMPLATE_CONTOH_1.identifikasi,
-        materiEsensialRelevansi: 'Struktur teks argumentasi (tesis, argumen berdata, penegasan ulang) dan kaidah kebahasaan persuasif objektif.',
-      },
-    },
-  },
-];

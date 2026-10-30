@@ -11,6 +11,11 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const isProd = process.env.NODE_ENV === 'production';
 const PORT = Number(process.env.PORT) || 3000;
 
+function cleanNip(nip?: string): string {
+  if (!nip) return '';
+  return nip.replace(/^(NIP\.?\s*)+/gi, '').trim();
+}
+
 async function startServer() {
   const app = express();
   app.use(express.json({ limit: '15mb' }));
@@ -25,28 +30,46 @@ async function startServer() {
     },
   });
 
-  // API endpoint for generating Deep Learning module
+  // API endpoint for generating Deep Learning module based on A-D inputs
   app.post('/api/generate-module', async (req, res) => {
     try {
       const {
-        namaSekolah,
-        namaGuru,
-        nipGuru,
-        namaKepalaSekolah,
-        nipKepalaSekolah,
+        namaSekolah = 'SMK Negeri 1 Bebandem',
+        namaGuru = 'Guru Pengampu',
+        nipGuru = '-',
+        namaKepalaSekolah = 'I Wayan Darmayasa, ST.,M.Si.',
+        nipKepalaSekolah = '19730522 200501 1 009',
         mataPelajaran,
-        fase,
-        kelas,
-        semester,
-        tahunPelajaran,
-        alokasiWaktu,
+        fase = 'Fase E',
+        kelas = 'Kelas X SMK',
+        semester = 'Semester Ganjil',
+        tahunPelajaran = '2024/2025',
+        alokasiWaktu = '4 JP (4 x 45 menit)',
         topikMateri,
-        fokusPendekatan,
-        catatanTambahan,
+
+        // B
+        karakteristikPesertaDidik,
+        materiEsensialRelevansi,
+        dimensiProfilLulusan = [],
+        capaianPembelajaran,
+        fokusTujuanPembelajaran,
+        kriteriaKetercapaianFokus,
+
+        // C
+        praktikPedagogis,
+        kemitraanPembelajaran,
+        lingkunganPembelajaran,
+        pemanfaatanTeknologiDigital,
+        prinsipFokus,
+
+        // D
+        pertanyaanPemantikKhusus,
+        kegiatanKontekstualSpesifik,
+        mediaDanSumber,
       } = req.body;
 
       if (!mataPelajaran || !topikMateri) {
-        return res.status(400).json({ error: 'Mata pelajaran dan topik pembelajaran wajib diisi.' });
+        return res.status(400).json({ error: 'Mata pelajaran dan topik materi pembelajaran wajib diisi.' });
       }
 
       if (!process.env.GEMINI_API_KEY) {
@@ -56,60 +79,54 @@ async function startServer() {
         });
       }
 
-      const prompt = `Anda adalah konsultan ahli kurikulum dan pedagogi "Pembelajaran Mendalam" (Deep Learning) standar Kurikulum Nasional Indonesia (Kemendikdasmen).
-Tolong buatkan dokumen Modul Ajar Deep Learning yang komprehensif, operasional, berbobot tinggi, dan terstruktur sesuai 4 bagian utama berikut:
+      const prompt = `Anda adalah konsultan kurikulum nasional dan pakar pedagogi Pembelajaran Mendalam (Deep Learning: Mindful, Meaningful, Joyful) berstandar Kemendikdasmen RI / Kurikulum Merdeka (Keputusan BSKAP No 032/H/KR/2024 tentang Capaian Pembelajaran).
 
-INPUT GURU:
-- Nama Sekolah: ${namaSekolah || 'SMA / SMP / SD Percontohan'}
-- Nama Guru/Penyusun: ${namaGuru || 'Guru Pengampu'}
-- NIP Guru: ${nipGuru || '-'}
-- Kepala Sekolah: ${namaKepalaSekolah || 'Kepala Sekolah'}
-- NIP Kepala Sekolah: ${nipKepalaSekolah || '-'}
+Tolong susunkan dokumen resmi MODUL AJAR PEMBELAJARAN MENDALAM yang sangat akurat, operasional, dan presisi, menyesuaikan secara menyeluruh dengan seluruh input dari Bagian A sampai D berikut:
+
+A. IDENTITAS MODUL:
+- Nama Satuan Pendidikan: ${namaSekolah}
+- Nama Kepala Sekolah: ${namaKepalaSekolah}
+- NIP Kepala Sekolah: ${cleanNip(nipKepalaSekolah)}
+- Nama Guru Pengampu: ${namaGuru}
+- NIP Guru Pengampu: ${cleanNip(nipGuru) || '-'}
 - Mata Pelajaran: ${mataPelajaran}
-- Fase dan Kelas: ${fase || 'Fase E'} / ${kelas || 'Kelas X'}
-- Semester & Tahun Pelajaran: ${semester || 'Ganjil'} / ${tahunPelajaran || '2024/2025'}
-- Alokasi Waktu: ${alokasiWaktu || '2 x 45 Menit (1 Pertemuan)'}
-- Materi/Topik Pembelajaran: ${topikMateri}
-- Pendekatan/Strategi Khusus yang Diharapkan: ${fokusPendekatan || 'Problem-Based Learning / Kolaboratif Berdiferensiasi'}
-- Catatan/Instruksi Tambahan: ${catatanTambahan || '-'}
+- Fase & Kelas: ${fase} / ${kelas}
+- Semester & Tahun Pelajaran: ${semester} / ${tahunPelajaran}
+- Alokasi Waktu: ${alokasiWaktu}
+- Topik / Materi Pembelajaran: ${topikMateri}
 
-KERANGKA MODUL AJAR DEEP LEARNING:
-A. Identitas Modul
-B. Identifikasi dan Perencanaan Pembelajaran:
-   - Karakteristik dan kebutuhan peserta didik (kesiapan, minat, profil belajar)
-   - Materi esensial dan relevansinya dengan kehidupan nyata (faktual, kontekstual masa kini)
-   - Dimensi Profil Lulusan / Profil Pelajar Pancasila yang dikembangkan
-   - Capaian Pembelajaran (CP) resmi sesuai fase
-   - Tujuan Pembelajaran (TP) yang terukur dengan kata kerja operasional (ABCD: Audience, Behavior, Condition, Degree)
-   - Kriteria Ketercapaian Tujuan Pembelajaran (KKTP) dengan indikator pencapaian bertingkat
-C. Desain Pembelajaran Mendalam (Deep Learning Pedagogy):
-   - Praktik pedagogis atau strategi pembelajaran inovatif
-   - Kemitraan pembelajaran (siswa-guru, antar-siswa, keterlibatan orang tua / komunitas / praktisi)
-   - Lingkungan pembelajaran (iklim psikologis aman, ruang fisik/kolaboratif)
-   - Pemanfaatan teknologi digital (aplikasi, AI, media interaktif, simulasi)
-   - Prinsip Berkesadaran (Mindful - hadir utuh, fokus), Bermakna (Meaningful - relevan dg hidup siswa), Menggembirakan (Joyful - antusias & interaktif)
-   - Tiga Pengalaman Belajar Inti:
-     * Memahami (Understanding / Inquiry, Eksplorasi konsep)
-     * Mengaplikasi (Applying / Menerapkan dalam pemecahan masalah / kreasi produk nyata)
-     * Merefleksi (Reflecting / Metakognisi, evaluasi diri dan rekan)
-D. Langkah-Langkah Pembelajaran:
-   - Kegiatan Pendahuluan (Apersepsi, mindful moment / breathing / ice breaking pembuka, asesmen diagnostik singkat, motivasi kontekstual, pertanyaan pemantik)
-   - Kegiatan Inti (Siklus Memahami -> Mengaplikasi -> Merefleksi dengan diferensiasi proses/konten, aktivitas guru & siswa yang spesifik dan interaktif)
-   - Kegiatan Penutup (Apresiasi, simpulan berkesadaran, refleksi 3-2-1 / exit ticket, tindak lanjut)
-   - Pertanyaan pemantik dan kegiatan kontekstual aplikatif
-   - Media, sumber belajar, dan alokasi waktu terinci
-E. Asesmen dan Lampiran:
-   - Asesmen awal (diagnostik), formatif (proses & rubrik performa), sumatif
-   - Lembar Kerja Peserta Didik (LKPD) ringkas
-   - Glosarium istilah penting
+B. IDENTIFIKASI & PERENCANAAN PEMBELAJARAN:
+- Karakteristik & Kebutuhan Peserta Didik: ${karakteristikPesertaDidik || 'Cari dan rumuskan secara otomatis karakteristik psikologis dan gaya belajar murid jenjang ' + kelas + ' di ' + namaSekolah + ', khususnya orientasi praktik, kolaborasi, dan kemandirian.'}
+- Materi Esensial & Relevansi Dunia Nyata / Industri: ${materiEsensialRelevansi || 'Hubungkan konsep materi esensial secara otomatis dengan pemecahan masalah nyata dalam kehidupan sehari-hari dan kebutuhan dunia kerja/industri.'}
+- Dimensi Profil Lulusan yang Dikembangkan: ${Array.isArray(dimensiProfilLulusan) && dimensiProfilLulusan.length > 0 ? dimensiProfilLulusan.join(', ') : 'Bernalar Kritis, Kreatif, Bergotong Royong, Mandiri'}
+- Capaian Pembelajaran (CP): ${capaianPembelajaran || 'Cari secara otomatis deskripsi resmi Capaian Pembelajaran (CP) Kemendikdasmen sesuai mata pelajaran ' + mataPelajaran + ' dan ' + fase + '.'}
+- Arahan Tujuan Pembelajaran (TP): ${fokusTujuanPembelajaran || 'Rumuskan minimal 3 Tujuan Pembelajaran operasional ABCD (Audience, Behavior, Condition, Degree) berbasis pemikiran tingkat tinggi (HOTS).'}
+- Kriteria Ketercapaian (KKTP): ${kriteriaKetercapaianFokus || 'Susun indikator ketercapaian terukur yang mencakup ranah kognitif, afektif, dan performa psikomotorik.'}
 
-Hasilkan JSON yang valid dan lengkap sesuai struktur.`;
+C. DESAIN PEMBELAJARAN MENDALAM:
+- Praktik Pedagogis: ${praktikPedagogis || 'Problem-Based Learning terintegrasi Teaching Factory / Diferensiasi'}
+- Kemitraan Pembelajaran: ${kemitraanPembelajaran || 'Kolaborasi antarsiswa, guru fasilitator, dan keterlibatan dunia usaha/dunia industri (DUDI)'}
+- Lingkungan Pembelajaran: ${lingkunganPembelajaran || 'Laboratorium/bengkel praktik berbudaya 5R serta iklim psikologis aman & suportif'}
+- Pemanfaatan Teknologi Digital: ${pemanfaatanTeknologiDigital || 'Platform digital kolaboratif, AI edukatif, dan simulasi kejuruan'}
+- Fokus Prinsip: ${prinsipFokus || 'Berkesadaran (Mindful), Bermakna (Meaningful), Menggembirakan (Joyful)'}
+- Pengalaman Belajar Inti:
+  * Memahami (Understanding / Eksplorasi konsep esensial)
+  * Mengaplikasi (Applying / Proyek atau studi kasus nyata terstandar)
+  * Merefleksi (Reflecting / Metakognisi dan evaluasi diri)
+
+D. LANGKAH-LANGKAH PEMBELAJARAN:
+- Pertanyaan Pemantik: ${pertanyaanPemantikKhusus || 'Buat minimal 2 pertanyaan pemantik yang memicu nalar kritis dan rasa ingin tahu mendalam.'}
+- Skenario Langkah Pembelajaran (Pendahuluan, Inti [Memahami, Mengaplikasi, Merefleksi], Penutup) dengan rincian aktivitas guru dan aktivitas peserta didik yang interaktif.
+- Kegiatan Kontekstual: ${kegiatanKontekstualSpesifik || 'Studi kasus kontekstual nyata yang menguji pemecahan masalah.'}
+- Media, Sumber Belajar & Alokasi Waktu: ${mediaDanSumber || 'Alat praktik, buku ajar resmi, dan referensi industri'}
+
+Berikan respon selalu dalam format JSON murni sesuai skema.`;
 
       const response = await ai.models.generateContent({
         model: 'gemini-3.8-flash',
         contents: prompt,
         config: {
-          systemInstruction: 'Anda adalah pakar penyusun modul ajar Deep Learning (Mindful, Meaningful, Joyful) berstandar nasional Indonesia. Berikan output selalu dalam format JSON murni yang sesuai dengan skema yang diminta.',
+          systemInstruction: 'Anda adalah pakar penyusun modul ajar Deep Learning (Mindful, Meaningful, Joyful) berstandar nasional Indonesia (Kemendikdasmen). Berikan output selalu dalam format JSON murni yang sesuai dengan skema yang diminta.',
           responseMimeType: 'application/json',
           responseSchema: {
             type: Type.OBJECT,
@@ -285,12 +302,18 @@ Hasilkan JSON yang valid dan lengkap sesuai struktur.`;
       const responseText = response.text || '{}';
       const parsedData = JSON.parse(responseText);
 
-      // Preserve input values if any are blank
-      if (!parsedData.identitas.namaSekolah && namaSekolah) parsedData.identitas.namaSekolah = namaSekolah;
-      if (!parsedData.identitas.namaGuru && namaGuru) parsedData.identitas.namaGuru = namaGuru;
-      if (!parsedData.identitas.nipGuru && nipGuru) parsedData.identitas.nipGuru = nipGuru;
-      if (!parsedData.identitas.namaKepalaSekolah && namaKepalaSekolah) parsedData.identitas.namaKepalaSekolah = namaKepalaSekolah;
-      if (!parsedData.identitas.nipKepalaSekolah && nipKepalaSekolah) parsedData.identitas.nipKepalaSekolah = nipKepalaSekolah;
+      // Enforce the requested identity fields
+      parsedData.identitas.namaSekolah = namaSekolah || 'SMK Negeri 1 Bebandem';
+      parsedData.identitas.namaKepalaSekolah = namaKepalaSekolah || 'I Wayan Darmayasa, ST.,M.Si.';
+      parsedData.identitas.nipKepalaSekolah = cleanNip(nipKepalaSekolah) || '19730522 200501 1 009';
+      if (namaGuru) parsedData.identitas.namaGuru = namaGuru;
+      if (nipGuru) parsedData.identitas.nipGuru = cleanNip(nipGuru);
+      if (!parsedData.meta) {
+        parsedData.meta = {
+          kotaPenyusunan: 'Bebandem',
+          tanggalPenyusunan: new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' }),
+        };
+      }
 
       return res.json({ success: true, data: parsedData });
     } catch (err: any) {

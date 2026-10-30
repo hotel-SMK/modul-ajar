@@ -18,6 +18,12 @@ import {
 import { ModulAjarData } from '../types/modul';
 import { exportModulToDocx, downloadBlobAsFile } from '../utils/docxExport';
 
+function formatNipDisplay(nip?: string): string {
+  if (!nip || nip === '-' || nip.trim() === '') return '-';
+  const clean = nip.replace(/^(NIP\.?\s*)+/gi, '').trim();
+  return clean ? `NIP. ${clean}` : '-';
+}
+
 interface ModulViewerProps {
   data: ModulAjarData;
   onUpdateData: (newData: ModulAjarData) => void;
@@ -398,7 +404,7 @@ Media & Sumber Belajar:
                         />
                       </div>
                     ) : (
-                      `${data.identitas.namaGuru}${data.identitas.nipGuru ? ` (NIP: ${data.identitas.nipGuru})` : ''}`
+                      `${data.identitas.namaGuru}${data.identitas.nipGuru && data.identitas.nipGuru !== '-' ? ` (${formatNipDisplay(data.identitas.nipGuru)})` : ''}`
                     )}
                   </td>
                 </tr>
@@ -1052,7 +1058,7 @@ Media & Sumber Belajar:
                 </div>
               </div>
               <p className="text-slate-600 mt-1">
-                NIP. {data.identitas.nipKepalaSekolah || '...........................................'}
+                {data.identitas.nipKepalaSekolah ? formatNipDisplay(data.identitas.nipKepalaSekolah) : 'NIP. ...........................................'}
               </p>
             </div>
 
@@ -1071,7 +1077,7 @@ Media & Sumber Belajar:
                 </div>
               </div>
               <p className="text-slate-600 mt-1">
-                NIP. {data.identitas.nipGuru || '...........................................'}
+                {data.identitas.nipGuru && data.identitas.nipGuru !== '-' ? formatNipDisplay(data.identitas.nipGuru) : 'NIP. ...........................................'}
               </p>
             </div>
           </div>

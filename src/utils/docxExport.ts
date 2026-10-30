@@ -18,6 +18,12 @@ const PRIMARY_COLOR = '1E3A8A'; // Navy blue
 const LIGHT_BG = 'F1F5F9';     // Slate light
 const BORDER_COLOR = 'CBD5E1'; // Slate border
 
+function formatNip(nip?: string): string {
+  if (!nip || nip === '-' || nip.trim() === '') return 'NIP. -';
+  const clean = nip.replace(/^(NIP\.?\s*)+/gi, '').trim();
+  return clean ? `NIP. ${clean}` : 'NIP. -';
+}
+
 export async function exportModulToDocx(data: ModulAjarData): Promise<Blob> {
   const tableBorder = {
     top: { style: BorderStyle.SINGLE, size: 1, color: BORDER_COLOR },
@@ -131,7 +137,7 @@ export async function exportModulToDocx(data: ModulAjarData): Promise<Blob> {
     width: { size: 100, type: WidthType.PERCENTAGE },
     rows: [
       createIdentityRow('Nama Satuan Pendidikan', data.identitas.namaSekolah),
-      createIdentityRow('Nama Guru / Penyusun', data.identitas.namaGuru + (data.identitas.nipGuru ? ` (NIP. ${data.identitas.nipGuru})` : '')),
+      createIdentityRow('Nama Guru / Penyusun', data.identitas.namaGuru + (data.identitas.nipGuru && data.identitas.nipGuru !== '-' ? ` (${formatNip(data.identitas.nipGuru)})` : '')),
       createIdentityRow('Mata Pelajaran', data.identitas.mataPelajaran),
       createIdentityRow('Fase & Kelas', `${data.identitas.fase} / ${data.identitas.kelas}`),
       createIdentityRow('Semester & Tahun Pelajaran', `${data.identitas.semester} / ${data.identitas.tahunPelajaran}`),
@@ -309,7 +315,7 @@ export async function exportModulToDocx(data: ModulAjarData): Promise<Blob> {
               new Paragraph({
                 alignment: AlignmentType.CENTER,
                 children: [
-                  new TextRun({ text: data.identitas.nipKepalaSekolah ? `NIP. ${data.identitas.nipKepalaSekolah}` : 'NIP. -', size: 20, font: 'Times New Roman' }),
+                  new TextRun({ text: formatNip(data.identitas.nipKepalaSekolah), size: 20, font: 'Times New Roman' }),
                 ],
               }),
             ],
@@ -345,7 +351,7 @@ export async function exportModulToDocx(data: ModulAjarData): Promise<Blob> {
               new Paragraph({
                 alignment: AlignmentType.CENTER,
                 children: [
-                  new TextRun({ text: data.identitas.nipGuru ? `NIP. ${data.identitas.nipGuru}` : 'NIP. -', size: 20, font: 'Times New Roman' }),
+                  new TextRun({ text: formatNip(data.identitas.nipGuru), size: 20, font: 'Times New Roman' }),
                 ],
               }),
             ],
